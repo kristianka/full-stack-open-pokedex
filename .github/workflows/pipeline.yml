@@ -4,7 +4,12 @@ on:
   push:
     branches:
       - master
-      # note that your "main" branch might be called main instead of master
+
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
+    
+# note that your "main" branch might be called main instead of master
 
 jobs:
     simple_deployment_pipeline:
@@ -37,6 +42,7 @@ jobs:
       name: Deploy to Render
       needs: simple_deployment_pipeline
       runs-on: ubuntu-latest
+      if: ${{ github.event_name == 'push' }}
       steps:
         - name: Trigger deployment
           run: curl ${{ secrets.RENDER_DEPLOY_URL }}
