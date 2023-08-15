@@ -16,7 +16,7 @@ app.get('/version', (req, res) => {
 })
 
 app.get('/health', (req, res) => {
-  throw 'error...'
+  res.status(500).json({ error: 'error!!!' })
   // eslint-disable-next-line no-unreachable
   res.send('ok')
 })
