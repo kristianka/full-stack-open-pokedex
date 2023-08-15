@@ -42,6 +42,7 @@ jobs:
       name: Deploy to Render
       needs: simple_deployment_pipeline
       runs-on: ubuntu-latest
+      if: ${{ github.event_name == 'push' }}
       steps:
         - name: Trigger deployment
           run: curl ${{ secrets.RENDER_DEPLOY_URL }}
