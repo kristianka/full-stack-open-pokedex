@@ -1,18 +1,19 @@
-name: Health check ping
+# name: Health check ping
 
-on:    
-    schedule:
-      - cron: '0 * * * *'
+# on:    
+#     schedule:
+#       - cron: '0 * * * *'
 
 
-jobs: 
-    hourly_health_check:
-        name: Hourly health check
-        runs-on: ubuntu-latest
-        steps:
-            - uses: jtalk/url-health-check-action@v3
-              with:
-                url: https://fso-pokedex-pk6y.onrender.com/health
-                retry-delay: 10s
-                max-attempts: 10
+# jobs: 
+#     hourly_health_check:
+#         name: Hourly health check
+#         runs-on: ubuntu-latest
+#         steps:
+#             - uses: jtalk/url-health-check-action@v3
+#               with:
+#                 url: https://fso-pokedex-pk6y.onrender.com/health
+#                 retry-delay: 10s
+#                 max-attempts: 10
 
+# disable to avoid spamming
